@@ -1,0 +1,21 @@
+Function ReGex(strInput As String, regexPattern As String) As String
+    Dim regExs As Object, matches As Object, Arr As Variant, i As Long
+    Set regExs = CreateObject("vbscript.regexp")
+    With regExs
+        .Global = True
+        .MultiLine = True
+        .IgnoreCase = False
+        .pattern = regexPattern
+    End With
+     If regExs.Test(strInput) Then
+        Set matches = regExs.Execute(strInput)
+        ReDim Arr(0 To matches.count - 1) As Variant
+        For i = 0 To matches.count - 1
+            Arr(i) = matches.item(i)
+        Next i
+        
+        ReGex = Join(Arr, "")
+    Else
+        ReGex = "Không có k" & ChrW(7871) & "t qu" & ChrW(7843)
+    End If
+End Function
