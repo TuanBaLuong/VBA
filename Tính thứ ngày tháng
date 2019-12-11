@@ -1,0 +1,17 @@
+Function Thu(A As Date) As String
+    Dim B As String
+    B = Application.WorksheetFunction.Weekday(A)
+    If B < 1 Or B > 7 Then
+        Thu = "Ngày không t" & ChrW(7891) & "n t" & ChrW(7841) & "i"
+    Else
+        Select Case B
+            Case 1: Thu = "Ch" & ChrW(7911) & " Nh" & ChrW(7853) & "t"
+            Case 2: Thu = "Th" & ChrW(7913) & " Hai"
+            Case 3: Thu = "Th" & ChrW(7913) & " Ba"
+            Case 4: Thu = "Th" & ChrW(7913) & " T" & ChrW(432)
+            Case 5: Thu = "Th" & ChrW(7913) & " N" & ChrW(259) & "m"
+            Case 6: Thu = "Th" & ChrW(7913) & " Sáu"
+            Case 7: Thu = "Th" & ChrW(7913) & " B" & ChrW(7849) & "y"
+        End Select
+    End If
+End Function
