@@ -1,0 +1,59 @@
+Option Explicit
+
+Function Tinhcanchi(nam As Integer)
+    Dim can As String, chi As String
+    Dim tinhcan As Integer, tinhchi As Integer
+    tinhcan = nam Mod 10
+    tinhchi = nam Mod 12
+    Select Case tinhcan
+        Case 0
+            can = "Canh"
+        Case 1
+            can = "Tân"
+        Case 2
+            can = "Nhâm"
+        Case 3
+            can = "Quý"
+        Case 4
+            can = "Giáp"
+        Case 5
+            can = ChrW(7844) & "t"
+        Case 6
+            can = ChrW(272) & "inh"
+        Case 7
+            can = ChrW(272) & "inh"
+        Case 8
+            can = "M" & ChrW(7853) & "u"
+        Case 9
+            can = "K" & ChrW(7927)
+    End Select
+    
+    Select Case tinhchi
+        Case 0
+            chi = "Thân"
+        Case 1
+            chi = "D" & ChrW(7853) & "u"
+        Case 2
+            chi = "Tu" & ChrW(7845) & "t"
+        Case 3
+            chi = "H" & ChrW(7907) & "i"
+        Case 4
+            chi = "Tý"
+        Case 5
+            chi = "S" & ChrW(7917) & "u"
+        Case 6
+            chi = "D" & ChrW(7847) & "n"
+        Case 7
+            chi = "Mão"
+        Case 8
+            chi = "Thìn"
+        Case 9
+            chi = "T" & ChrW(7925) & " "
+        Case 10
+            chi = "Ng" & ChrW(7885) & " "
+        Case 11
+            chi = "Mùi"
+    End Select
+    Tinhcanchi = nam & " Có n" & ChrW(259) & "m âm l" & ChrW(7883) & "ch là :" & can & chi
+End Function
+
