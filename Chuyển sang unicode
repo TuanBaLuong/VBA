@@ -1,0 +1,29 @@
+
+-- Nguồn sưu tầm không rõ địa chỉ
+Function UniVba(TxtUni As String) As String 'chuyen vba sang uni
+Dim N, uni1 As String, uni2 As String
+    If TxtUni = "" Then
+        UniVba = """"""
+    Else
+        TxtUni = TxtUni & " "
+        If AscW(Left(TxtUni, 1)) < 256 Then UniVba = """"
+            For N = 1 To Len(TxtUni) - 1
+                uni1 = Mid(TxtUni, N, 1)
+                uni2 = AscW(Mid(TxtUni, N + 1, 1))
+                 If AscW(uni1) > 255 And uni2 > 255 Then
+                    UniVba = UniVba & "ChrW(" & AscW(uni1) & ") & "
+                 ElseIf AscW(uni1) > 255 And uni2 < 256 Then
+                    UniVba = UniVba & "ChrW(" & AscW(uni1) & ") & """
+                 ElseIf AscW(uni1) < 256 And uni2 > 255 Then
+                    UniVba = UniVba & uni1 & """ & "
+                 Else
+                    UniVba = UniVba & uni1
+                End If
+            Next
+        If Right(UniVba, 4) = " & """ Then
+            UniVba = Mid(UniVba, 1, Len(UniVba) - 4)
+        Else
+            UniVba = UniVba & """"
+        End If
+    End If
+End Function
