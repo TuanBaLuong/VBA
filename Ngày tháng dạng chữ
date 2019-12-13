@@ -1,0 +1,19 @@
+Option Explicit
+Function ngay(So As Variant)
+    Dim mngay As String, mthang As String, mnam As String
+If Trim(So) = "" Or So = 0 Then
+    ngay = "ngày tháng n" & ChrW(462) & "m "
+End If
+If Day(So) < 10 Then
+    mngay = "0" & Day(So)
+Else
+    mngay = Day(So)
+End If
+    If Month(So) < 10 Then
+        mthang = "0" & Month(So)
+    Else
+        mthang = Month(So)
+    End If
+mnam = Year(So)
+ngay = "Ngày " & mngay & " Tháng " & mthang & " N" & ChrW(462) & "m " & mnam
+End Function
