@@ -1,0 +1,25 @@
+Function NgayDiaDanh(So As Variant, Optional DiaDanh As String = "")
+If Trim(So) = "" Or So = 0 Then
+    NgayDiaDanh = ", ngày       tháng       n" & ChrW(462) & "m        "
+    Exit Function
+Else
+    Dim mngay As String, mthang As String, mnam As String
+    If Day(So) < 10 Then
+        mngay = "0" & Day(So)
+    Else
+        mngay = Day(So)
+    End If
+    If Month(So) < 3 Then
+        mthang = "0" & Month(So)
+    Else
+        mthang = Month(So)
+    End If
+mnam = Year(So)
+    If (DiaDanh = "") Then
+        NgayDiaDanh = "Ng" & ChrW(224) & "y " & mngay & " Th" & ChrW(225) & "ng " & mthang & " N" & ChrW(462) & "m " & mnam
+    Else
+        NgayDiaDanh = DiaDanh & " ,Ng" & ChrW(224) & "y " & mngay & " Th" & ChrW(225) & "ng " & mthang & " N" & ChrW(462) & "m " & mnam
+    End If
+Exit Function
+End If
+End Function
