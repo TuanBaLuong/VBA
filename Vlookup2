@@ -1,0 +1,21 @@
+Option Explicit
+Function VLookup2(Giatri1, cot1 As Integer, Giatri2, cot2 As Integer, Vungtra As Range, cot As Integer)
+
+        Dim Sohang As Long, i As Long
+
+        Sohang = Vungtra.Rows.Count
+
+        On Error GoTo Error_VLOOKUP2
+
+        For i = 1 To Sohang
+
+                If Vungtra.Cells(i, cot1) = Giatri1 And Vungtra.Cells(i, cot2) = Giatri2 Then
+                        VLookup2 = Vungtra.Cells(i, cot)
+                        Exit For
+                End If
+
+        Next
+        Exit Function
+Error_VLOOKUP2:
+        VLookup2 = Err
+End Function
