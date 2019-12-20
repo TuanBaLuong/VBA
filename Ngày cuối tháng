@@ -1,4 +1,19 @@
 Option Explicit
+
+'HocExcel.Online
+'Tính ngày cuối Tháng  =calEDATE("01/25/2019") => KQ: 01/31/2019
+'Tính ngày cuối Quý =calEDATE("01/25/2019",0) => KQ: 03/31/2019
+
+Function calEDATE(dteDate As Date, Optional blnQuy As Boolean = False) As Double
+    Dim dtrResult As Date
+    If blnQuy Then
+        dtrResult = DateSerial(Year(dteDate), Int((Month(dteDate) - 1) / 3) * 3 + 4, 0)
+    Else
+        dtrResult = DateSerial(Year(dteDate), Month(dteDate) + 1, 0)
+    End If
+    calEDate = dtrResult
+End Function
+
 Function NgayCT(Thang As Integer, Nam As Integer, Optional Quy As Boolean = False)
     Dim XMONTH, XYEAR, XDAY
     XMONTH = Thang
@@ -35,3 +50,6 @@ Function NgayCT(Thang As Integer, Nam As Integer, Optional Quy As Boolean = Fals
         NgayCT = Application.WorksheetFunction.Text(XDAY & "/" & XMONTH & "/" & XYEAR, "dd/mm/yyyy")
     End If
 End Function
+
+
+
